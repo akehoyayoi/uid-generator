@@ -2,7 +2,7 @@ package com.akehoyayoi.uid
 
 import org.scalatest.{FlatSpec, Matchers}
 
-class IdWorkerTest  extends FlatSpec with Matchers {
+class IdWorkerTest extends FlatSpec with Matchers {
 
   implicit val config = IdWorkerConfig(
     workerNodeIdBits = 22L,
