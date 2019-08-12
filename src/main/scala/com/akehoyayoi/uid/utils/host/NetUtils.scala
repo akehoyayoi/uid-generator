@@ -1,4 +1,4 @@
-package com.akehoyayoi.uid.utils
+package com.akehoyayoi.uid.utils.host
 
 import java.net.{InetAddress, NetworkInterface}
 

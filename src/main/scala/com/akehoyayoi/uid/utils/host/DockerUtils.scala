@@ -1,4 +1,4 @@
-package com.akehoyayoi.uid.utils
+package com.akehoyayoi.uid.utils.host
 
 object DockerUtils {
 
@@ -10,12 +10,13 @@ object DockerUtils {
 
   /** Docker host & port */
   lazy val DOCKER_HOST = {
-    System.getenv(ENV_KEY_HOST)
+    Option(System.getenv(ENV_KEY_HOST)).getOrElse("")
   }
   lazy val DOCKER_PORT = {
-    val port = System.getenv(ENV_KEY_PORT)
-    if(port.isEmpty) System.getenv(ENV_KEY_PORT_ORIGINAL)
-    else port
+    Option(System.getenv(ENV_KEY_PORT)) match {
+      case Some(port) if !port.isEmpty ⇒ port
+      case _ ⇒ Option(System.getenv(ENV_KEY_PORT_ORIGINAL)).getOrElse("")
+    }
   }
 
   /** Whether is docker */
